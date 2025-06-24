@@ -1,6 +1,4 @@
-from .YOLOv3 import YOLOv3
 from .MMDet import MMDet
-from .YOLOv5 import YOLOv5
 from .Mask_RCNN import Mask_RCNN
 
 __all__ = ['build_detector']
