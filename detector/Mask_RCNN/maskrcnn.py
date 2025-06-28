@@ -141,13 +141,13 @@ def xywh_to_xyxy(boxes_xywh):
 
 
 class Mask_RCNN:
-    def __init__(self, segment, num_classes, box_thresh, label_json_path='coco_classes.json', weight_path=None):
+    def __init__(self, segment, num_classes, box_thresh, label_json_path='/coco_classes.json', weight_path=None):
         self.segment = segment
         self.num_classes = num_classes  # 不包含背景
         self.box_thresh = box_thresh
         self.weight_path = weight_path
         self.label_json_path = label_json_path
-        with open(self.label_json_path, 'r') as f:
+        with open('/home/stas/ID-REID/ByteTrack/detector/Mask_RCNN/coco_classes.json', 'r') as f:
             self.category_index = json.load(f)
         self.class_names = [value for value in self.category_index.values()]
         self.category_index = {str(k): v for k, v in enumerate(self.class_names)}

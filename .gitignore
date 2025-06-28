@@ -1,3 +1,1 @@
-models/cifar10_gradcam.h5
-/detector/Mask_RCNN/save_weights/maskrcnn_resnet50_fpn_coco.pth
 detector/Mask_RCNN/save_weights/maskrcnn_resnet50_fpn_coco.pth
