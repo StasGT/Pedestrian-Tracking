@@ -1,0 +1,98 @@
+2025-06-27 10:20:37.176 | INFO     | __main__:main:154 - Args: Namespace(experiment_name='yolox_x_mix_det', name=None, dist_backend='nccl', dist_url=None, batch_size=1, devices=1, local_rank=0, num_machines=1, machine_rank=0, exp_file='exps/example/mot/yolox_x_mix_det.py', fp16=True, fuse=True, trt=False, test=False, speed=False, opts=[], ckpt='pretrained/bytetrack_x_mot17.pth.tar', conf=0.01, nms=0.7, tsize=None, seed=None, track_thresh=0.6, track_buffer=30, match_thresh=0.9, min_box_area=100, mot20=False)
+2025-06-27 10:20:37.572 | INFO     | __main__:main:164 - Model Summary: Params: 99.00M, Gflops: 793.21
+2025-06-27 10:20:37.572 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2025-06-27 10:20:37.583 | INFO     | yolox.data.datasets.mot:__init__:39 - Done (t=0.01s)
+2025-06-27 10:20:37.583 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2025-06-27 10:20:37.583 | INFO     | pycocotools.coco:__init__:88 - index created!
+2025-06-27 10:20:38.028 | INFO     | __main__:main:186 - loading checkpoint
+2025-06-27 10:20:38.292 | INFO     | __main__:main:191 - loaded checkpoint done.
+2025-06-27 10:20:38.292 | INFO     | __main__:main:197 - 	Fusing model...
+2025-06-27 10:21:14.905 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mix_det/track_results/MOT17-01.txt
+2025-06-27 10:23:15.469 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mix_det/track_results/MOT17-03.txt
+2025-06-27 10:24:45.259 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mix_det/track_results/MOT17-06.txt
+2025-06-27 10:25:23.819 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mix_det/track_results/MOT17-07.txt
+2025-06-27 10:26:11.967 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mix_det/track_results/MOT17-08.txt
+2025-06-27 10:27:20.908 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mix_det/track_results/MOT17-12.txt
+2025-06-27 10:28:19.669 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mix_det/track_results/MOT17-14.txt
+2025-06-27 10:28:19.705 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:628 - Evaluate in main process...
+2025-06-27 10:28:21.859 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:657 - Loading and preparing results...
+2025-06-27 10:28:22.513 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:657 - DONE (t=0.65s)
+2025-06-27 10:28:22.513 | INFO     | pycocotools.coco:loadRes:363 - creating index...
+2025-06-27 10:28:22.561 | INFO     | pycocotools.coco:loadRes:363 - index created!
+2025-06-27 10:28:23.310 | INFO     | __main__:main:218 - 
+Average forward time: 73.36 ms, Average track time: 2.34 ms, Average inference time: 75.70 ms
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = -1.000
+
+2025-06-27 10:28:23.310 | INFO     | __main__:main:235 - Found 6 groundtruths and 7 test files.
+2025-06-27 10:28:23.310 | INFO     | __main__:main:236 - Available LAP solvers ['lap', 'scipy']
+2025-06-27 10:28:23.310 | INFO     | __main__:main:237 - Default LAP solver 'lap'
+2025-06-27 10:28:23.311 | INFO     | __main__:main:238 - Loading files.
+2025-06-27 10:28:24.250 | WARNING  | __main__:compare_dataframes:122 - No ground truth for MOT17-01, skipping.
+2025-06-27 10:28:24.250 | WARNING  | __main__:compare_dataframes:122 - No ground truth for MOT17-12, skipping.
+2025-06-27 10:28:24.250 | WARNING  | __main__:compare_dataframes:122 - No ground truth for MOT17-07, skipping.
+2025-06-27 10:28:24.250 | WARNING  | __main__:compare_dataframes:122 - No ground truth for MOT17-08, skipping.
+2025-06-27 10:28:24.250 | WARNING  | __main__:compare_dataframes:122 - No ground truth for MOT17-06, skipping.
+2025-06-27 10:28:24.250 | WARNING  | __main__:compare_dataframes:122 - No ground truth for MOT17-14, skipping.
+2025-06-27 10:28:24.250 | WARNING  | __main__:compare_dataframes:122 - No ground truth for MOT17-03, skipping.
+2025-06-27 10:28:24.250 | INFO     | __main__:main:246 - Running metrics
+2025-06-27 10:28:24.255 | INFO     | __main__:main:271 - Completed
+2025-06-27 10:44:33.470 | INFO     | __main__:main:154 - Args: Namespace(experiment_name='yolox_x_mix_det', name=None, dist_backend='nccl', dist_url=None, batch_size=1, devices=1, local_rank=0, num_machines=1, machine_rank=0, exp_file='exps/example/mot/yolox_x_mix_det.py', fp16=True, fuse=True, trt=False, test=False, speed=False, opts=[], ckpt='pretrained/bytetrack_x_mot17.pth.tar', conf=0.01, nms=0.7, tsize=None, seed=None, track_thresh=0.6, track_buffer=30, match_thresh=0.9, min_box_area=100, mot20=False)
+2025-06-27 10:44:33.863 | INFO     | __main__:main:164 - Model Summary: Params: 99.00M, Gflops: 793.21
+2025-06-27 10:44:33.863 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2025-06-27 10:44:33.876 | INFO     | yolox.data.datasets.mot:__init__:39 - Done (t=0.01s)
+2025-06-27 10:44:33.876 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2025-06-27 10:44:33.876 | INFO     | pycocotools.coco:__init__:88 - index created!
+2025-06-27 10:44:34.335 | INFO     | __main__:main:186 - loading checkpoint
+2025-06-27 10:44:34.606 | INFO     | __main__:main:191 - loaded checkpoint done.
+2025-06-27 10:44:34.606 | INFO     | __main__:main:197 - 	Fusing model...
+2025-06-27 10:45:10.380 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mix_det/track_results/MOT17-01.txt
+2025-06-27 10:47:06.649 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mix_det/track_results/MOT17-03.txt
+2025-06-27 10:48:36.252 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mix_det/track_results/MOT17-06.txt
+2025-06-27 10:49:16.184 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mix_det/track_results/MOT17-07.txt
+2025-06-27 10:50:04.882 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mix_det/track_results/MOT17-08.txt
+2025-06-27 10:51:17.795 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mix_det/track_results/MOT17-12.txt
+2025-06-27 10:52:19.260 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mix_det/track_results/MOT17-14.txt
+2025-06-27 10:52:19.284 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:628 - Evaluate in main process...
+2025-06-27 10:52:21.243 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:657 - Loading and preparing results...
+2025-06-27 10:52:21.899 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:657 - DONE (t=0.66s)
+2025-06-27 10:52:21.899 | INFO     | pycocotools.coco:loadRes:363 - creating index...
+2025-06-27 10:52:21.942 | INFO     | pycocotools.coco:loadRes:363 - index created!
+2025-06-27 10:52:22.503 | INFO     | __main__:main:218 - 
+Average forward time: 74.47 ms, Average track time: 2.30 ms, Average inference time: 76.77 ms
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = -1.000
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = -1.000
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = -1.000
+
+2025-06-27 10:52:22.504 | INFO     | __main__:main:236 - Found 6 groundtruths and 7 test files.
+2025-06-27 10:52:22.504 | INFO     | __main__:main:237 - Available LAP solvers ['lap', 'scipy']
+2025-06-27 10:52:22.504 | INFO     | __main__:main:238 - Default LAP solver 'lap'
+2025-06-27 10:52:22.504 | INFO     | __main__:main:239 - Loading files.
+2025-06-27 10:52:23.465 | WARNING  | __main__:compare_dataframes:122 - No ground truth for MOT17-01, skipping.
+2025-06-27 10:52:23.465 | WARNING  | __main__:compare_dataframes:122 - No ground truth for MOT17-12, skipping.
+2025-06-27 10:52:23.465 | WARNING  | __main__:compare_dataframes:122 - No ground truth for MOT17-07, skipping.
+2025-06-27 10:52:23.465 | WARNING  | __main__:compare_dataframes:122 - No ground truth for MOT17-08, skipping.
+2025-06-27 10:52:23.465 | WARNING  | __main__:compare_dataframes:122 - No ground truth for MOT17-06, skipping.
+2025-06-27 10:52:23.465 | WARNING  | __main__:compare_dataframes:122 - No ground truth for MOT17-14, skipping.
+2025-06-27 10:52:23.465 | WARNING  | __main__:compare_dataframes:122 - No ground truth for MOT17-03, skipping.
+2025-06-27 10:52:23.466 | INFO     | __main__:main:247 - Running metrics
+2025-06-27 10:52:23.470 | INFO     | __main__:main:272 - Completed

@@ -1,0 +1,126 @@
+2025-06-25 16:54:03.248 | INFO     | yolox.core.trainer:before_train:126 - args: Namespace(experiment_name='yolox_x_mix_det', name=None, dist_backend='nccl', dist_url=None, batch_size=48, devices=1, local_rank=0, exp_file='exps/example/mot/yolox_x_mix_det.py', resume=False, ckpt='pretrained/bytetrack_x_mot17.pth.tar', start_epoch=None, num_machines=1, machine_rank=0, fp16=True, occupy=True, opts=[])
+2025-06-25 16:54:03.249 | INFO     | yolox.core.trainer:before_train:127 - exp value:
+╒══════════════════╤═══════════════════╕
+│ keys             │ values            │
+╞══════════════════╪═══════════════════╡
+│ seed             │ None              │
+├──────────────────┼───────────────────┤
+│ output_dir       │ './YOLOX_outputs' │
+├──────────────────┼───────────────────┤
+│ print_interval   │ 20                │
+├──────────────────┼───────────────────┤
+│ eval_interval    │ 5                 │
+├──────────────────┼───────────────────┤
+│ num_classes      │ 1                 │
+├──────────────────┼───────────────────┤
+│ depth            │ 1.33              │
+├──────────────────┼───────────────────┤
+│ width            │ 1.25              │
+├──────────────────┼───────────────────┤
+│ data_num_workers │ 4                 │
+├──────────────────┼───────────────────┤
+│ input_size       │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ random_size      │ (18, 32)          │
+├──────────────────┼───────────────────┤
+│ train_ann        │ 'train.json'      │
+├──────────────────┼───────────────────┤
+│ val_ann          │ 'test.json'       │
+├──────────────────┼───────────────────┤
+│ degrees          │ 10.0              │
+├──────────────────┼───────────────────┤
+│ translate        │ 0.1               │
+├──────────────────┼───────────────────┤
+│ scale            │ (0.1, 2)          │
+├──────────────────┼───────────────────┤
+│ mscale           │ (0.8, 1.6)        │
+├──────────────────┼───────────────────┤
+│ shear            │ 2.0               │
+├──────────────────┼───────────────────┤
+│ perspective      │ 0.0               │
+├──────────────────┼───────────────────┤
+│ enable_mixup     │ True              │
+├──────────────────┼───────────────────┤
+│ warmup_epochs    │ 1                 │
+├──────────────────┼───────────────────┤
+│ max_epoch        │ 80                │
+├──────────────────┼───────────────────┤
+│ warmup_lr        │ 0                 │
+├──────────────────┼───────────────────┤
+│ basic_lr_per_img │ 1.5625e-05        │
+├──────────────────┼───────────────────┤
+│ scheduler        │ 'yoloxwarmcos'    │
+├──────────────────┼───────────────────┤
+│ no_aug_epochs    │ 10                │
+├──────────────────┼───────────────────┤
+│ min_lr_ratio     │ 0.05              │
+├──────────────────┼───────────────────┤
+│ ema              │ True              │
+├──────────────────┼───────────────────┤
+│ weight_decay     │ 0.0005            │
+├──────────────────┼───────────────────┤
+│ momentum         │ 0.9               │
+├──────────────────┼───────────────────┤
+│ exp_name         │ 'yolox_x_mix_det' │
+├──────────────────┼───────────────────┤
+│ test_size        │ (800, 1440)       │
+├──────────────────┼───────────────────┤
+│ test_conf        │ 0.001             │
+├──────────────────┼───────────────────┤
+│ nmsthre          │ 0.7               │
+╘══════════════════╧═══════════════════╛
+2025-06-25 16:54:03.637 | INFO     | yolox.core.trainer:before_train:132 - Model Summary: Params: 99.00M, Gflops: 793.21
+2025-06-25 16:54:04.070 | INFO     | yolox.core.trainer:resume_train:291 - loading checkpoint for fine tuning
+2025-06-25 16:54:04.341 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2025-06-25 16:54:04.341 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (14210), thread 'MainThread' (140439816523904):
+Traceback (most recent call last):
+
+  File "/home/stas/ID-REID/ByteTrack/tools/train.py", line 114, in <module>
+    launch(
+    └ <function launch at 0x7fb9f4db38b0>
+
+> File "/home/stas/ID-REID/ByteTrack/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7fb9e43e3820>
+
+  File "/home/stas/ID-REID/ByteTrack/tools/train.py", line 100, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7fb9e5492ca0>
+    └ <yolox.core.trainer.Trainer object at 0x7fb9e4140cd0>
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/core/trainer.py", line 70, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7fb9e43bd5e0>
+    └ <yolox.core.trainer.Trainer object at 0x7fb9e4140cd0>
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/core/trainer.py", line 145, in before_train
+    self.train_loader = self.exp.get_data_loader(
+    │                   │    │   └ <function Exp.get_data_loader at 0x7fb9e413d550>
+    │                   │    └ ╒══════════════════╤═════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    │                   └ <yolox.core.trainer.Trainer object at 0x7fb9e4140cd0>
+    └ <yolox.core.trainer.Trainer object at 0x7fb9e4140cd0>
+
+  File "/home/stas/ID-REID/ByteTrack/exps/example/mot/yolox_x_mix_det.py", line 42, in get_data_loader
+    dataset = MOTDataset(
+              └ <class 'yolox.data.datasets.mot.MOTDataset'>
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/data/datasets/mot.py", line 39, in __init__
+    self.coco = COCO(os.path.join(self.data_dir, "annotations", self.json_file))
+    │           │    │  │    │    │    │                        │    └ 'train.json'
+    │           │    │  │    │    │    │                        └ <yolox.data.datasets.mot.MOTDataset object at 0x7fba12e97f10>
+    │           │    │  │    │    │    └ '/home/stas/ID-REID/ByteTrack/datasets/mix_det'
+    │           │    │  │    │    └ <yolox.data.datasets.mot.MOTDataset object at 0x7fba12e97f10>
+    │           │    │  │    └ <function join at 0x7fbab1461940>
+    │           │    │  └ <module 'posixpath' from '/usr/local/lib/python3.9/posixpath.py'>
+    │           │    └ <module 'os' from '/usr/local/lib/python3.9/os.py'>
+    │           └ <class 'pycocotools.coco.COCO'>
+    └ <yolox.data.datasets.mot.MOTDataset object at 0x7fba12e97f10>
+
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/pycocotools/coco.py", line 84, in __init__
+    dataset = json.load(open(annotation_file, 'r'))
+              │    │         └ '/home/stas/ID-REID/ByteTrack/datasets/mix_det/annotations/train.json'
+              │    └ <function load at 0x7fbaacc543a0>
+              └ <module 'json' from '/usr/local/lib/python3.9/json/__init__.py'>
+
+FileNotFoundError: [Errno 2] No such file or directory: '/home/stas/ID-REID/ByteTrack/datasets/mix_det/annotations/train.json'

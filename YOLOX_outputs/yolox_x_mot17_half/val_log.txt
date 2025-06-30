@@ -1,0 +1,212 @@
+2025-06-25 17:08:04.905 | INFO     | __main__:main:154 - Args: Namespace(experiment_name='yolox_x_mot17_half', name=None, dist_backend='nccl', dist_url=None, batch_size=1, devices=1, local_rank=0, num_machines=1, machine_rank=0, exp_file='exps/example/mot/yolox_x_mot17_half.py', fp16=True, fuse=True, trt=False, test=False, speed=False, opts=[], ckpt='bytetrack_x_mot17.pth.tar', conf=0.01, nms=0.7, tsize=None, seed=None, track_thresh=0.6, track_buffer=30, match_thresh=0.9, min_box_area=100, mot20=False)
+2025-06-25 17:08:05.298 | INFO     | __main__:main:164 - Model Summary: Params: 99.00M, Gflops: 793.21
+2025-06-25 17:08:05.299 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2025-06-25 17:08:05.415 | INFO     | yolox.data.datasets.mot:__init__:39 - Done (t=0.12s)
+2025-06-25 17:08:05.415 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2025-06-25 17:08:05.464 | INFO     | pycocotools.coco:__init__:88 - index created!
+2025-06-25 17:08:05.967 | INFO     | __main__:main:186 - loading checkpoint
+2025-06-25 17:08:05.967 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (22288), thread 'MainThread' (140634143469696):
+Traceback (most recent call last):
+
+  File "/home/stas/ID-REID/ByteTrack/tools/track.py", line 285, in <module>
+    launch(
+    └ <function launch at 0x7fe733a83160>
+
+> File "/home/stas/ID-REID/ByteTrack/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7fe6e16cf5e0>
+
+  File "/home/stas/ID-REID/ByteTrack/tools/track.py", line 188, in main
+    ckpt = torch.load(ckpt_file, map_location=loc)
+           │     │    │                       └ 'cuda:0'
+           │     │    └ 'bytetrack_x_mot17.pth.tar'
+           │     └ <function load at 0x7fe7356e7ee0>
+           └ <module 'torch' from '/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/__init__.py'>
+
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/serialization.py", line 771, in load
+    with _open_file_like(f, 'rb') as opened_file:
+         │               └ 'bytetrack_x_mot17.pth.tar'
+         └ <function _open_file_like at 0x7fe7356e7310>
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/serialization.py", line 270, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+           │          │               └ 'rb'
+           │          └ 'bytetrack_x_mot17.pth.tar'
+           └ <class 'torch.serialization._open_file'>
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/serialization.py", line 251, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+          │           │                   │     └ 'rb'
+          │           │                   └ 'bytetrack_x_mot17.pth.tar'
+          │           └ <torch.serialization._open_file object at 0x7fe768af8e50>
+          └ <class 'torch.serialization._open_file'>
+
+FileNotFoundError: [Errno 2] No such file or directory: 'bytetrack_x_mot17.pth.tar'
+2025-06-25 17:08:32.038 | INFO     | __main__:main:154 - Args: Namespace(experiment_name='yolox_x_mot17_half', name=None, dist_backend='nccl', dist_url=None, batch_size=1, devices=1, local_rank=0, num_machines=1, machine_rank=0, exp_file='exps/example/mot/yolox_x_mot17_half.py', fp16=True, fuse=True, trt=False, test=False, speed=False, opts=[], ckpt='pretrained/bytetrack_x_mot17.pth.tar', conf=0.01, nms=0.7, tsize=None, seed=None, track_thresh=0.6, track_buffer=30, match_thresh=0.9, min_box_area=100, mot20=False)
+2025-06-25 17:08:32.440 | INFO     | __main__:main:164 - Model Summary: Params: 99.00M, Gflops: 793.21
+2025-06-25 17:08:32.440 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2025-06-25 17:08:32.556 | INFO     | yolox.data.datasets.mot:__init__:39 - Done (t=0.12s)
+2025-06-25 17:08:32.557 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2025-06-25 17:08:32.607 | INFO     | pycocotools.coco:__init__:88 - index created!
+2025-06-25 17:08:33.114 | INFO     | __main__:main:186 - loading checkpoint
+2025-06-25 17:08:33.385 | INFO     | __main__:main:191 - loaded checkpoint done.
+2025-06-25 17:08:33.385 | INFO     | __main__:main:197 - 	Fusing model...
+2025-06-25 17:08:58.997 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-02.txt
+2025-06-25 17:09:39.799 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-04.txt
+2025-06-25 17:10:12.014 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-05.txt
+2025-06-25 17:10:32.102 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-09.txt
+2025-06-25 17:10:57.814 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-10.txt
+2025-06-25 17:11:33.678 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-11.txt
+2025-06-25 17:12:02.836 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-13.txt
+2025-06-25 17:12:02.867 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:628 - Evaluate in main process...
+2025-06-25 17:12:03.365 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:657 - Loading and preparing results...
+2025-06-25 17:12:03.647 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:657 - DONE (t=0.28s)
+2025-06-25 17:12:03.647 | INFO     | pycocotools.coco:loadRes:363 - creating index...
+2025-06-25 17:12:03.661 | INFO     | pycocotools.coco:loadRes:363 - index created!
+2025-06-25 17:12:04.156 | INFO     | __main__:main:218 - 
+Average forward time: 75.76 ms, Average track time: 1.44 ms, Average inference time: 77.20 ms
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.770
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.965
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.877
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.439
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.734
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.827
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.045
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.370
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.797
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.533
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.765
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.851
+
+2025-06-25 17:12:04.156 | INFO     | __main__:main:235 - Found 7 groundtruths and 7 test files.
+2025-06-25 17:12:04.156 | INFO     | __main__:main:236 - Available LAP solvers ['lap', 'scipy']
+2025-06-25 17:12:04.157 | INFO     | __main__:main:237 - Default LAP solver 'lap'
+2025-06-25 17:12:04.157 | INFO     | __main__:main:238 - Loading files.
+2025-06-25 17:12:04.797 | INFO     | __main__:compare_dataframes:118 - Comparing MOT17-10...
+2025-06-25 17:12:04.888 | INFO     | __main__:compare_dataframes:118 - Comparing MOT17-09...
+2025-06-25 17:12:04.954 | INFO     | __main__:compare_dataframes:118 - Comparing MOT17-04...
+2025-06-25 17:12:05.224 | INFO     | __main__:compare_dataframes:118 - Comparing MOT17-02...
+2025-06-25 17:12:05.328 | INFO     | __main__:compare_dataframes:118 - Comparing MOT17-13...
+2025-06-25 17:12:05.412 | INFO     | __main__:compare_dataframes:118 - Comparing MOT17-05...
+2025-06-25 17:12:05.507 | INFO     | __main__:compare_dataframes:118 - Comparing MOT17-11...
+2025-06-25 17:12:05.613 | INFO     | __main__:main:246 - Running metrics
+2025-06-25 17:12:06.128 | INFO     | __main__:main:271 - Completed
+2025-06-26 15:07:31.963 | INFO     | __main__:main:153 - Args: Namespace(experiment_name='yolox_x_mot17_half', name=None, dist_backend='nccl', dist_url=None, batch_size=1, devices=1, local_rank=0, num_machines=1, machine_rank=0, exp_file='exps/example/mot/yolox_x_mot17_half.py', fp16=True, fuse=True, trt=False, test=False, speed=False, opts=[], ckpt='pretrained/bytetrack_x_mot17.pth.tar', conf=0.01, nms=0.7, tsize=None, seed=None, track_thresh=0.6, track_buffer=30, match_thresh=0.9, min_box_area=100, mot20=False)
+2025-06-26 15:07:32.343 | INFO     | __main__:main:163 - Model Summary: Params: 99.00M, Gflops: 793.21
+2025-06-26 15:07:32.343 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2025-06-26 15:07:32.453 | INFO     | yolox.data.datasets.mot:__init__:39 - Done (t=0.11s)
+2025-06-26 15:07:32.453 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2025-06-26 15:07:32.501 | INFO     | pycocotools.coco:__init__:88 - index created!
+2025-06-26 15:07:32.988 | INFO     | __main__:main:185 - loading checkpoint
+2025-06-26 15:07:33.250 | INFO     | __main__:main:190 - loaded checkpoint done.
+2025-06-26 15:07:33.250 | INFO     | __main__:main:196 - 	Fusing model...
+2025-06-26 15:07:58.853 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-02.txt
+2025-06-26 15:08:39.545 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-04.txt
+2025-06-26 15:09:12.358 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-05.txt
+2025-06-26 15:09:32.721 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-09.txt
+2025-06-26 15:09:57.952 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-10.txt
+2025-06-26 15:10:33.198 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-11.txt
+2025-06-26 15:11:02.807 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-13.txt
+2025-06-26 15:11:02.826 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:628 - Evaluate in main process...
+2025-06-26 15:11:03.410 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:657 - Loading and preparing results...
+2025-06-26 15:11:03.681 | INFO     | yolox.evaluators.mot_evaluator:evaluate_prediction:657 - DONE (t=0.27s)
+2025-06-26 15:11:03.681 | INFO     | pycocotools.coco:loadRes:363 - creating index...
+2025-06-26 15:11:03.695 | INFO     | pycocotools.coco:loadRes:363 - index created!
+2025-06-26 15:11:04.187 | INFO     | __main__:main:217 - 
+Average forward time: 75.60 ms, Average track time: 1.62 ms, Average inference time: 77.22 ms
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.770
+ Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.965
+ Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.877
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.439
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.734
+ Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.827
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.045
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.370
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.797
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.533
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.765
+ Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.851
+
+2025-06-26 15:11:04.187 | INFO     | __main__:main:234 - Found 7 groundtruths and 7 test files.
+2025-06-26 15:11:04.187 | INFO     | __main__:main:235 - Available LAP solvers ['lap', 'scipy']
+2025-06-26 15:11:04.187 | INFO     | __main__:main:236 - Default LAP solver 'lap'
+2025-06-26 15:11:04.187 | INFO     | __main__:main:237 - Loading files.
+2025-06-26 15:11:04.816 | INFO     | __main__:compare_dataframes:117 - Comparing MOT17-10...
+2025-06-26 15:11:04.906 | INFO     | __main__:compare_dataframes:117 - Comparing MOT17-09...
+2025-06-26 15:11:04.972 | INFO     | __main__:compare_dataframes:117 - Comparing MOT17-04...
+2025-06-26 15:11:05.241 | INFO     | __main__:compare_dataframes:117 - Comparing MOT17-02...
+2025-06-26 15:11:05.347 | INFO     | __main__:compare_dataframes:117 - Comparing MOT17-13...
+2025-06-26 15:11:05.431 | INFO     | __main__:compare_dataframes:117 - Comparing MOT17-05...
+2025-06-26 15:11:05.526 | INFO     | __main__:compare_dataframes:117 - Comparing MOT17-11...
+2025-06-26 15:11:05.633 | INFO     | __main__:main:245 - Running metrics
+2025-06-26 15:11:06.150 | INFO     | __main__:main:270 - Completed
+2025-06-27 11:24:43.586 | INFO     | __main__:main:155 - Args: Namespace(experiment_name='yolox_x_mot17_half', name=None, dist_backend='nccl', dist_url=None, batch_size=1, devices=1, local_rank=0, num_machines=1, machine_rank=0, exp_file='exps/example/mot/yolox_x_mot17_half.py', fp16=True, fuse=True, trt=False, test=False, speed=False, opts=[], ckpt='pretrained/bytetrack_x_mot17.pth.tar', conf=0.01, nms=0.7, tsize=None, seed=None, track_thresh=0.6, track_buffer=30, match_thresh=0.9, min_box_area=100, mot20=False)
+2025-06-27 11:24:43.981 | INFO     | __main__:main:165 - Model Summary: Params: 99.00M, Gflops: 793.21
+2025-06-27 11:24:43.981 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2025-06-27 11:24:44.096 | INFO     | yolox.data.datasets.mot:__init__:39 - Done (t=0.11s)
+2025-06-27 11:24:44.096 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2025-06-27 11:24:44.146 | INFO     | pycocotools.coco:__init__:88 - index created!
+2025-06-27 11:24:44.646 | INFO     | __main__:main:187 - loading checkpoint
+2025-06-27 11:24:44.914 | INFO     | __main__:main:192 - loaded checkpoint done.
+2025-06-27 11:24:44.914 | INFO     | __main__:main:198 - 	Fusing model...
+2025-06-27 11:25:10.031 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-02.txt
+2025-06-27 11:25:52.287 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-04.txt
+2025-06-27 11:26:24.971 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-05.txt
+2025-06-27 11:26:44.726 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-09.txt
+2025-06-27 11:27:26.847 | INFO     | __main__:main:155 - Args: Namespace(experiment_name='yolox_x_mot17_half', name=None, dist_backend='nccl', dist_url=None, batch_size=1, devices=1, local_rank=0, num_machines=1, machine_rank=0, exp_file='exps/example/mot/yolox_x_mot17_half.py', fp16=True, fuse=True, trt=False, test=False, speed=False, opts=[], ckpt='pretrained/bytetrack_x_mot17.pth.tar', conf=0.01, nms=0.7, tsize=None, seed=None, track_thresh=0.6, track_buffer=30, match_thresh=0.9, min_box_area=100, mot20=False)
+2025-06-27 11:27:27.248 | INFO     | __main__:main:165 - Model Summary: Params: 99.00M, Gflops: 793.21
+2025-06-27 11:27:27.249 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2025-06-27 11:27:27.364 | INFO     | yolox.data.datasets.mot:__init__:39 - Done (t=0.12s)
+2025-06-27 11:27:27.365 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2025-06-27 11:27:27.414 | INFO     | pycocotools.coco:__init__:88 - index created!
+2025-06-27 11:27:27.922 | INFO     | __main__:main:187 - loading checkpoint
+2025-06-27 11:27:28.187 | INFO     | __main__:main:192 - loaded checkpoint done.
+2025-06-27 11:27:28.187 | INFO     | __main__:main:198 - 	Fusing model...
+2025-06-27 11:27:53.918 | INFO     | yolox.evaluators.mot_evaluator:write_results:39 - save results to ./YOLOX_outputs/yolox_x_mot17_half/track_results/MOT17-02.txt
+2025-06-27 11:28:52.874 | INFO     | __main__:main:155 - Args: Namespace(experiment_name='yolox_x_mot17_half', name=None, dist_backend='nccl', dist_url=None, batch_size=1, devices=1, local_rank=0, num_machines=1, machine_rank=0, exp_file='exps/example/mot/yolox_x_mot17_half.py', fp16=True, fuse=True, trt=False, test=False, speed=False, opts=[], ckpt='pretrained/bytetrack_x_mot17.pth.tar', conf=0.01, nms=0.7, tsize=None, seed=None, track_thresh=0.6, track_buffer=30, match_thresh=0.9, min_box_area=100, mot20=False)
+2025-06-27 11:28:53.268 | INFO     | __main__:main:165 - Model Summary: Params: 99.00M, Gflops: 793.21
+2025-06-27 11:28:53.269 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2025-06-27 11:28:53.269 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (8702), thread 'MainThread' (140031876194432):
+Traceback (most recent call last):
+
+  File "/home/stas/ID-REID/ByteTrack/tools/track.py", line 287, in <module>
+    launch(
+    └ <function launch at 0x7f5af9bae160>
+
+> File "/home/stas/ID-REID/ByteTrack/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7f5aa77fa5e0>
+
+  File "/home/stas/ID-REID/ByteTrack/tools/track.py", line 168, in main
+    val_loader = exp.get_eval_loader(args.batch_size, is_distributed, args.test)
+                 │   │               │    │           │               │    └ False
+                 │   │               │    │           │               └ Namespace(experiment_name='yolox_x_mot17_half', name=None, dist_backend='nccl', dist_url=None, batch_size=1, devices=1, local...
+                 │   │               │    │           └ False
+                 │   │               │    └ 1
+                 │   │               └ Namespace(experiment_name='yolox_x_mot17_half', name=None, dist_backend='nccl', dist_url=None, batch_size=1, devices=1, local...
+                 │   └ <function Exp.get_eval_loader at 0x7f5aa77faee0>
+                 └ ╒══════════════════╤═════════════════════════════════════════════════════════════════════════════════════════════════════════...
+
+  File "/home/stas/ID-REID/ByteTrack/exps/example/mot/yolox_x_mot17_half.py", line 97, in get_eval_loader
+    valdataset = MOTDataset(
+                 └ <class 'yolox.data.datasets.mot.MOTDataset'>
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/data/datasets/mot.py", line 39, in __init__
+    self.coco = COCO(os.path.join(self.data_dir, "annotations", self.json_file))
+    │           │    │  │    │    │    │                        │    └ 'val_half.json'
+    │           │    │  │    │    │    │                        └ <yolox.data.datasets.mot.MOTDataset object at 0x7f5b2e41c3a0>
+    │           │    │  │    │    │    └ '/home/stas/ID-REID/ByteTrack/datasets/sequences'
+    │           │    │  │    │    └ <yolox.data.datasets.mot.MOTDataset object at 0x7f5b2e41c3a0>
+    │           │    │  │    └ <function join at 0x7f5bb622a940>
+    │           │    │  └ <module 'posixpath' from '/usr/local/lib/python3.9/posixpath.py'>
+    │           │    └ <module 'os' from '/usr/local/lib/python3.9/os.py'>
+    │           └ <class 'pycocotools.coco.COCO'>
+    └ <yolox.data.datasets.mot.MOTDataset object at 0x7f5b2e41c3a0>
+
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/pycocotools/coco.py", line 84, in __init__
+    dataset = json.load(open(annotation_file, 'r'))
+              │    │         └ '/home/stas/ID-REID/ByteTrack/datasets/sequences/annotations/val_half.json'
+              │    └ <function load at 0x7f5bb1a25310>
+              └ <module 'json' from '/usr/local/lib/python3.9/json/__init__.py'>
+
+FileNotFoundError: [Errno 2] No such file or directory: '/home/stas/ID-REID/ByteTrack/datasets/sequences/annotations/val_half.json'

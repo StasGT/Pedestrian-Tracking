@@ -1,0 +1,886 @@
+2025-06-25 16:56:46.764 | INFO     | yolox.core.trainer:before_train:126 - args: Namespace(experiment_name='yolox_x_mot17_half', name=None, dist_backend='nccl', dist_url=None, batch_size=48, devices=1, local_rank=0, exp_file='exps/example/mot/yolox_x_mot17_half.py', resume=False, ckpt='pretrained/bytetrack_x_mot17.pth.tar', start_epoch=None, num_machines=1, machine_rank=0, fp16=True, occupy=True, opts=[])
+2025-06-25 16:56:46.765 | INFO     | yolox.core.trainer:before_train:127 - exp value:
+╒══════════════════╤══════════════════════╕
+│ keys             │ values               │
+╞══════════════════╪══════════════════════╡
+│ seed             │ None                 │
+├──────────────────┼──────────────────────┤
+│ output_dir       │ './YOLOX_outputs'    │
+├──────────────────┼──────────────────────┤
+│ print_interval   │ 20                   │
+├──────────────────┼──────────────────────┤
+│ eval_interval    │ 5                    │
+├──────────────────┼──────────────────────┤
+│ num_classes      │ 1                    │
+├──────────────────┼──────────────────────┤
+│ depth            │ 1.33                 │
+├──────────────────┼──────────────────────┤
+│ width            │ 1.25                 │
+├──────────────────┼──────────────────────┤
+│ data_num_workers │ 4                    │
+├──────────────────┼──────────────────────┤
+│ input_size       │ (800, 1440)          │
+├──────────────────┼──────────────────────┤
+│ random_size      │ (18, 32)             │
+├──────────────────┼──────────────────────┤
+│ train_ann        │ 'train.json'         │
+├──────────────────┼──────────────────────┤
+│ val_ann          │ 'val_half.json'      │
+├──────────────────┼──────────────────────┤
+│ degrees          │ 10.0                 │
+├──────────────────┼──────────────────────┤
+│ translate        │ 0.1                  │
+├──────────────────┼──────────────────────┤
+│ scale            │ (0.1, 2)             │
+├──────────────────┼──────────────────────┤
+│ mscale           │ (0.8, 1.6)           │
+├──────────────────┼──────────────────────┤
+│ shear            │ 2.0                  │
+├──────────────────┼──────────────────────┤
+│ perspective      │ 0.0                  │
+├──────────────────┼──────────────────────┤
+│ enable_mixup     │ True                 │
+├──────────────────┼──────────────────────┤
+│ warmup_epochs    │ 1                    │
+├──────────────────┼──────────────────────┤
+│ max_epoch        │ 80                   │
+├──────────────────┼──────────────────────┤
+│ warmup_lr        │ 0                    │
+├──────────────────┼──────────────────────┤
+│ basic_lr_per_img │ 1.5625e-05           │
+├──────────────────┼──────────────────────┤
+│ scheduler        │ 'yoloxwarmcos'       │
+├──────────────────┼──────────────────────┤
+│ no_aug_epochs    │ 10                   │
+├──────────────────┼──────────────────────┤
+│ min_lr_ratio     │ 0.05                 │
+├──────────────────┼──────────────────────┤
+│ ema              │ True                 │
+├──────────────────┼──────────────────────┤
+│ weight_decay     │ 0.0005               │
+├──────────────────┼──────────────────────┤
+│ momentum         │ 0.9                  │
+├──────────────────┼──────────────────────┤
+│ exp_name         │ 'yolox_x_mot17_half' │
+├──────────────────┼──────────────────────┤
+│ test_size        │ (800, 1440)          │
+├──────────────────┼──────────────────────┤
+│ test_conf        │ 0.1                  │
+├──────────────────┼──────────────────────┤
+│ nmsthre          │ 0.7                  │
+╘══════════════════╧══════════════════════╛
+2025-06-25 16:56:47.152 | INFO     | yolox.core.trainer:before_train:132 - Model Summary: Params: 99.00M, Gflops: 793.21
+2025-06-25 16:56:47.594 | INFO     | yolox.core.trainer:resume_train:291 - loading checkpoint for fine tuning
+2025-06-25 16:56:47.861 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2025-06-25 16:56:47.861 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (15590), thread 'MainThread' (140617610342528):
+Traceback (most recent call last):
+
+  File "/home/stas/ID-REID/ByteTrack/tools/train.py", line 114, in <module>
+    launch(
+    └ <function launch at 0x7fe35a33a8b0>
+
+> File "/home/stas/ID-REID/ByteTrack/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7fe3496ab820>
+
+  File "/home/stas/ID-REID/ByteTrack/tools/train.py", line 100, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7fe34aa05ca0>
+    └ <yolox.core.trainer.Trainer object at 0x7fe3496c8be0>
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/core/trainer.py", line 70, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7fe3499315e0>
+    └ <yolox.core.trainer.Trainer object at 0x7fe3496c8be0>
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/core/trainer.py", line 145, in before_train
+    self.train_loader = self.exp.get_data_loader(
+    │                   │    │   └ <function Exp.get_data_loader at 0x7fe3496b0670>
+    │                   │    └ ╒══════════════════╤═════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    │                   └ <yolox.core.trainer.Trainer object at 0x7fe3496c8be0>
+    └ <yolox.core.trainer.Trainer object at 0x7fe3496c8be0>
+
+  File "/home/stas/ID-REID/ByteTrack/exps/example/mot/yolox_x_mot17_half.py", line 42, in get_data_loader
+    dataset = MOTDataset(
+              └ <class 'yolox.data.datasets.mot.MOTDataset'>
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/data/datasets/mot.py", line 39, in __init__
+    self.coco = COCO(os.path.join(self.data_dir, "annotations", self.json_file))
+    │           │    │  │    │    │    │                        │    └ 'train.json'
+    │           │    │  │    │    │    │                        └ <yolox.data.datasets.mot.MOTDataset object at 0x7fe370c8bf10>
+    │           │    │  │    │    │    └ '/home/stas/ID-REID/ByteTrack/datasets/mot'
+    │           │    │  │    │    └ <yolox.data.datasets.mot.MOTDataset object at 0x7fe370c8bf10>
+    │           │    │  │    └ <function join at 0x7fe4169c7940>
+    │           │    │  └ <module 'posixpath' from '/usr/local/lib/python3.9/posixpath.py'>
+    │           │    └ <module 'os' from '/usr/local/lib/python3.9/os.py'>
+    │           └ <class 'pycocotools.coco.COCO'>
+    └ <yolox.data.datasets.mot.MOTDataset object at 0x7fe370c8bf10>
+
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/pycocotools/coco.py", line 84, in __init__
+    dataset = json.load(open(annotation_file, 'r'))
+              │    │         └ '/home/stas/ID-REID/ByteTrack/datasets/mot/annotations/train.json'
+              │    └ <function load at 0x7fe4121ba3a0>
+              └ <module 'json' from '/usr/local/lib/python3.9/json/__init__.py'>
+
+FileNotFoundError: [Errno 2] No such file or directory: '/home/stas/ID-REID/ByteTrack/datasets/mot/annotations/train.json'
+2025-06-25 16:58:20.916 | INFO     | yolox.core.trainer:before_train:126 - args: Namespace(experiment_name='yolox_x_mot17_half', name=None, dist_backend='nccl', dist_url=None, batch_size=48, devices=1, local_rank=0, exp_file='exps/example/mot/yolox_x_mot17_half.py', resume=False, ckpt='pretrained/bytetrack_x_mot17.pth.tar', start_epoch=None, num_machines=1, machine_rank=0, fp16=True, occupy=True, opts=[])
+2025-06-25 16:58:20.917 | INFO     | yolox.core.trainer:before_train:127 - exp value:
+╒══════════════════╤══════════════════════╕
+│ keys             │ values               │
+╞══════════════════╪══════════════════════╡
+│ seed             │ None                 │
+├──────────────────┼──────────────────────┤
+│ output_dir       │ './YOLOX_outputs'    │
+├──────────────────┼──────────────────────┤
+│ print_interval   │ 20                   │
+├──────────────────┼──────────────────────┤
+│ eval_interval    │ 5                    │
+├──────────────────┼──────────────────────┤
+│ num_classes      │ 1                    │
+├──────────────────┼──────────────────────┤
+│ depth            │ 1.33                 │
+├──────────────────┼──────────────────────┤
+│ width            │ 1.25                 │
+├──────────────────┼──────────────────────┤
+│ data_num_workers │ 4                    │
+├──────────────────┼──────────────────────┤
+│ input_size       │ (800, 1440)          │
+├──────────────────┼──────────────────────┤
+│ random_size      │ (18, 32)             │
+├──────────────────┼──────────────────────┤
+│ train_ann        │ 'train.json'         │
+├──────────────────┼──────────────────────┤
+│ val_ann          │ 'val_half.json'      │
+├──────────────────┼──────────────────────┤
+│ degrees          │ 10.0                 │
+├──────────────────┼──────────────────────┤
+│ translate        │ 0.1                  │
+├──────────────────┼──────────────────────┤
+│ scale            │ (0.1, 2)             │
+├──────────────────┼──────────────────────┤
+│ mscale           │ (0.8, 1.6)           │
+├──────────────────┼──────────────────────┤
+│ shear            │ 2.0                  │
+├──────────────────┼──────────────────────┤
+│ perspective      │ 0.0                  │
+├──────────────────┼──────────────────────┤
+│ enable_mixup     │ True                 │
+├──────────────────┼──────────────────────┤
+│ warmup_epochs    │ 1                    │
+├──────────────────┼──────────────────────┤
+│ max_epoch        │ 80                   │
+├──────────────────┼──────────────────────┤
+│ warmup_lr        │ 0                    │
+├──────────────────┼──────────────────────┤
+│ basic_lr_per_img │ 1.5625e-05           │
+├──────────────────┼──────────────────────┤
+│ scheduler        │ 'yoloxwarmcos'       │
+├──────────────────┼──────────────────────┤
+│ no_aug_epochs    │ 10                   │
+├──────────────────┼──────────────────────┤
+│ min_lr_ratio     │ 0.05                 │
+├──────────────────┼──────────────────────┤
+│ ema              │ True                 │
+├──────────────────┼──────────────────────┤
+│ weight_decay     │ 0.0005               │
+├──────────────────┼──────────────────────┤
+│ momentum         │ 0.9                  │
+├──────────────────┼──────────────────────┤
+│ exp_name         │ 'yolox_x_mot17_half' │
+├──────────────────┼──────────────────────┤
+│ test_size        │ (800, 1440)          │
+├──────────────────┼──────────────────────┤
+│ test_conf        │ 0.1                  │
+├──────────────────┼──────────────────────┤
+│ nmsthre          │ 0.7                  │
+╘══════════════════╧══════════════════════╛
+2025-06-25 16:58:21.307 | INFO     | yolox.core.trainer:before_train:132 - Model Summary: Params: 99.00M, Gflops: 793.21
+2025-06-25 16:58:21.751 | INFO     | yolox.core.trainer:resume_train:291 - loading checkpoint for fine tuning
+2025-06-25 16:58:22.024 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2025-06-25 16:58:22.262 | INFO     | yolox.data.datasets.mot:__init__:39 - Done (t=0.24s)
+2025-06-25 16:58:22.262 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2025-06-25 16:58:22.280 | INFO     | pycocotools.coco:__init__:88 - index created!
+2025-06-25 16:58:22.448 | INFO     | yolox.core.trainer:before_train:150 - init prefetcher, this might take one minute or less...
+2025-06-25 16:58:40.581 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2025-06-25 16:58:40.582 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (16407), thread 'MainThread' (139837741908096):
+Traceback (most recent call last):
+
+  File "/home/stas/ID-REID/ByteTrack/tools/train.py", line 114, in <module>
+    launch(
+    └ <function launch at 0x7f2dc669a8b0>
+
+> File "/home/stas/ID-REID/ByteTrack/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7f2db5a1f820>
+
+  File "/home/stas/ID-REID/ByteTrack/tools/train.py", line 100, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7f2db6d79ca0>
+    └ <yolox.core.trainer.Trainer object at 0x7f2db5a3dbb0>
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/core/trainer.py", line 70, in train
+    self.before_train()
+    │    └ <function Trainer.before_train at 0x7f2db5ca55e0>
+    └ <yolox.core.trainer.Trainer object at 0x7f2db5a3dbb0>
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/core/trainer.py", line 171, in before_train
+    self.evaluator = self.exp.get_evaluator(
+    │                │    │   └ <function Exp.get_evaluator at 0x7f2db5a25790>
+    │                │    └ ╒══════════════════╤═════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    │                └ <yolox.core.trainer.Trainer object at 0x7f2db5a3dbb0>
+    └ <yolox.core.trainer.Trainer object at 0x7f2db5a3dbb0>
+
+  File "/home/stas/ID-REID/ByteTrack/exps/example/mot/yolox_x_mot17_half.py", line 129, in get_evaluator
+    val_loader = self.get_eval_loader(batch_size, is_distributed, testdev=testdev)
+                 │    │               │           │                       └ False
+                 │    │               │           └ False
+                 │    │               └ 48
+                 │    └ <function Exp.get_eval_loader at 0x7f2db5a25700>
+                 └ ╒══════════════════╤═════════════════════════════════════════════════════════════════════════════════════════════════════════...
+
+  File "/home/stas/ID-REID/ByteTrack/exps/example/mot/yolox_x_mot17_half.py", line 97, in get_eval_loader
+    valdataset = MOTDataset(
+                 └ <class 'yolox.data.datasets.mot.MOTDataset'>
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/data/datasets/mot.py", line 39, in __init__
+    self.coco = COCO(os.path.join(self.data_dir, "annotations", self.json_file))
+    │           │    │  │    │    │    │                        │    └ 'val_half.json'
+    │           │    │  │    │    │    │                        └ <yolox.data.datasets.mot.MOTDataset object at 0x7f2decf48550>
+    │           │    │  │    │    │    └ '/home/stas/ID-REID/ByteTrack/datasets/mot'
+    │           │    │  │    │    └ <yolox.data.datasets.mot.MOTDataset object at 0x7f2decf48550>
+    │           │    │  │    └ <function join at 0x7f2e82d48940>
+    │           │    │  └ <module 'posixpath' from '/usr/local/lib/python3.9/posixpath.py'>
+    │           │    └ <module 'os' from '/usr/local/lib/python3.9/os.py'>
+    │           └ <class 'pycocotools.coco.COCO'>
+    └ <yolox.data.datasets.mot.MOTDataset object at 0x7f2decf48550>
+
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/pycocotools/coco.py", line 84, in __init__
+    dataset = json.load(open(annotation_file, 'r'))
+              │    │         └ '/home/stas/ID-REID/ByteTrack/datasets/mot/annotations/val_half.json'
+              │    └ <function load at 0x7f2e7e53b3a0>
+              └ <module 'json' from '/usr/local/lib/python3.9/json/__init__.py'>
+
+FileNotFoundError: [Errno 2] No such file or directory: '/home/stas/ID-REID/ByteTrack/datasets/mot/annotations/val_half.json'
+2025-06-25 16:59:46.094 | INFO     | yolox.core.trainer:before_train:126 - args: Namespace(experiment_name='yolox_x_mot17_half', name=None, dist_backend='nccl', dist_url=None, batch_size=48, devices=1, local_rank=0, exp_file='exps/example/mot/yolox_x_mot17_half.py', resume=False, ckpt='pretrained/bytetrack_x_mot17.pth.tar', start_epoch=None, num_machines=1, machine_rank=0, fp16=True, occupy=True, opts=[])
+2025-06-25 16:59:46.095 | INFO     | yolox.core.trainer:before_train:127 - exp value:
+╒══════════════════╤══════════════════════╕
+│ keys             │ values               │
+╞══════════════════╪══════════════════════╡
+│ seed             │ None                 │
+├──────────────────┼──────────────────────┤
+│ output_dir       │ './YOLOX_outputs'    │
+├──────────────────┼──────────────────────┤
+│ print_interval   │ 20                   │
+├──────────────────┼──────────────────────┤
+│ eval_interval    │ 5                    │
+├──────────────────┼──────────────────────┤
+│ num_classes      │ 1                    │
+├──────────────────┼──────────────────────┤
+│ depth            │ 1.33                 │
+├──────────────────┼──────────────────────┤
+│ width            │ 1.25                 │
+├──────────────────┼──────────────────────┤
+│ data_num_workers │ 4                    │
+├──────────────────┼──────────────────────┤
+│ input_size       │ (800, 1440)          │
+├──────────────────┼──────────────────────┤
+│ random_size      │ (18, 32)             │
+├──────────────────┼──────────────────────┤
+│ train_ann        │ 'train.json'         │
+├──────────────────┼──────────────────────┤
+│ val_ann          │ 'val_half.json'      │
+├──────────────────┼──────────────────────┤
+│ degrees          │ 10.0                 │
+├──────────────────┼──────────────────────┤
+│ translate        │ 0.1                  │
+├──────────────────┼──────────────────────┤
+│ scale            │ (0.1, 2)             │
+├──────────────────┼──────────────────────┤
+│ mscale           │ (0.8, 1.6)           │
+├──────────────────┼──────────────────────┤
+│ shear            │ 2.0                  │
+├──────────────────┼──────────────────────┤
+│ perspective      │ 0.0                  │
+├──────────────────┼──────────────────────┤
+│ enable_mixup     │ True                 │
+├──────────────────┼──────────────────────┤
+│ warmup_epochs    │ 1                    │
+├──────────────────┼──────────────────────┤
+│ max_epoch        │ 80                   │
+├──────────────────┼──────────────────────┤
+│ warmup_lr        │ 0                    │
+├──────────────────┼──────────────────────┤
+│ basic_lr_per_img │ 1.5625e-05           │
+├──────────────────┼──────────────────────┤
+│ scheduler        │ 'yoloxwarmcos'       │
+├──────────────────┼──────────────────────┤
+│ no_aug_epochs    │ 10                   │
+├──────────────────┼──────────────────────┤
+│ min_lr_ratio     │ 0.05                 │
+├──────────────────┼──────────────────────┤
+│ ema              │ True                 │
+├──────────────────┼──────────────────────┤
+│ weight_decay     │ 0.0005               │
+├──────────────────┼──────────────────────┤
+│ momentum         │ 0.9                  │
+├──────────────────┼──────────────────────┤
+│ exp_name         │ 'yolox_x_mot17_half' │
+├──────────────────┼──────────────────────┤
+│ test_size        │ (800, 1440)          │
+├──────────────────┼──────────────────────┤
+│ test_conf        │ 0.1                  │
+├──────────────────┼──────────────────────┤
+│ nmsthre          │ 0.7                  │
+╘══════════════════╧══════════════════════╛
+2025-06-25 16:59:46.485 | INFO     | yolox.core.trainer:before_train:132 - Model Summary: Params: 99.00M, Gflops: 793.21
+2025-06-25 16:59:46.930 | INFO     | yolox.core.trainer:resume_train:291 - loading checkpoint for fine tuning
+2025-06-25 16:59:47.203 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2025-06-25 16:59:47.440 | INFO     | yolox.data.datasets.mot:__init__:39 - Done (t=0.24s)
+2025-06-25 16:59:47.440 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2025-06-25 16:59:47.456 | INFO     | pycocotools.coco:__init__:88 - index created!
+2025-06-25 16:59:47.625 | INFO     | yolox.core.trainer:before_train:150 - init prefetcher, this might take one minute or less...
+2025-06-25 17:00:00.232 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2025-06-25 17:00:00.528 | INFO     | yolox.data.datasets.mot:__init__:39 - Done (t=0.30s)
+2025-06-25 17:00:00.528 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2025-06-25 17:00:00.546 | INFO     | pycocotools.coco:__init__:88 - index created!
+2025-06-25 17:00:00.661 | INFO     | yolox.core.trainer:before_train:178 - Training start...
+2025-06-25 17:00:00.661 | INFO     | yolox.core.trainer:before_epoch:189 - ---> start train epoch1
+2025-06-25 17:00:03.688 | INFO     | yolox.core.trainer:after_train:182 - Training of experiment is done and the best AP is 0.00
+2025-06-25 17:00:03.688 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (17371), thread 'MainThread' (139632301461632):
+Traceback (most recent call last):
+
+  File "/home/stas/ID-REID/ByteTrack/tools/train.py", line 114, in <module>
+    launch(
+    └ <function launch at 0x7efdf13538b0>
+
+> File "/home/stas/ID-REID/ByteTrack/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7efde06d8820>
+
+  File "/home/stas/ID-REID/ByteTrack/tools/train.py", line 100, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7efde1a32ca0>
+    └ <yolox.core.trainer.Trainer object at 0x7efde06f5be0>
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/core/trainer.py", line 72, in train
+    self.train_in_epoch()
+    │    └ <function Trainer.train_in_epoch at 0x7efde1a3a4c0>
+    └ <yolox.core.trainer.Trainer object at 0x7efde06f5be0>
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/core/trainer.py", line 81, in train_in_epoch
+    self.train_in_iter()
+    │    └ <function Trainer.train_in_iter at 0x7efde095e4c0>
+    └ <yolox.core.trainer.Trainer object at 0x7efde06f5be0>
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/core/trainer.py", line 87, in train_in_iter
+    self.train_one_iter()
+    │    └ <function Trainer.train_one_iter at 0x7efde095e550>
+    └ <yolox.core.trainer.Trainer object at 0x7efde06f5be0>
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/core/trainer.py", line 102, in train_one_iter
+    outputs = self.model(inps, targets)
+              │    │     │     └ tensor([[[   0.0000,  793.5000,   53.7812,   97.7500,  314.5000],
+              │    │     │                [   0.0000,  730.5000,  -25.9219,   26.0000,   72....
+              │    │     └ <unprintable Tensor object>
+              │    └ YOLOX(
+              │        (backbone): YOLOPAFPN(
+              │          (backbone): CSPDarknet(
+              │            (stem): Focus(
+              │              (conv): BaseConv(
+              │                (conv): ...
+              └ <yolox.core.trainer.Trainer object at 0x7efde06f5be0>
+
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ <unprintable tuple object>
+           └ <bound method YOLOX.forward of YOLOX(
+               (backbone): YOLOPAFPN(
+                 (backbone): CSPDarknet(
+                   (stem): Focus(
+                     (conv...
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/models/yolox.py", line 30, in forward
+    fpn_outs = self.backbone(x)
+               │             └ <unprintable Tensor object>
+               └ YOLOX(
+                   (backbone): YOLOPAFPN(
+                     (backbone): CSPDarknet(
+                       (stem): Focus(
+                         (conv): BaseConv(
+                           (conv): ...
+
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ <unprintable tuple object>
+           └ <bound method YOLOPAFPN.forward of YOLOPAFPN(
+               (backbone): CSPDarknet(
+                 (stem): Focus(
+                   (conv): BaseConv(
+                     (c...
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/models/yolo_pafpn.py", line 93, in forward
+    out_features = self.backbone(input)
+                   │             └ <unprintable Tensor object>
+                   └ YOLOPAFPN(
+                       (backbone): CSPDarknet(
+                         (stem): Focus(
+                           (conv): BaseConv(
+                             (conv): Conv2d(12, 80, kernel_size=(3...
+
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ <unprintable tuple object>
+           └ <bound method CSPDarknet.forward of CSPDarknet(
+               (stem): Focus(
+                 (conv): BaseConv(
+                   (conv): Conv2d(12, 80, kernel_si...
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/models/darknet.py", line 169, in forward
+    x = self.stem(x)
+        │         └ <unprintable Tensor object>
+        └ CSPDarknet(
+            (stem): Focus(
+              (conv): BaseConv(
+                (conv): Conv2d(12, 80, kernel_size=(3, 3), stride=(1, 1), padding=(1...
+
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ <unprintable tuple object>
+           └ <bound method Focus.forward of Focus(
+               (conv): BaseConv(
+                 (conv): Conv2d(12, 80, kernel_size=(3, 3), stride=(1, 1), paddi...
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/models/network_blocks.py", line 210, in forward
+    return self.conv(x)
+           │         └ <unprintable Tensor object>
+           └ Focus(
+               (conv): BaseConv(
+                 (conv): Conv2d(12, 80, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+                 (bn)...
+
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ <unprintable tuple object>
+           └ <bound method BaseConv.forward of BaseConv(
+               (conv): Conv2d(12, 80, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=...
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/models/network_blocks.py", line 51, in forward
+    return self.act(self.bn(self.conv(x)))
+           │        │       │         └ <unprintable Tensor object>
+           │        │       └ BaseConv(
+           │        │           (conv): Conv2d(12, 80, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+           │        │           (bn): BatchNorm2d(80, eps...
+           │        └ BaseConv(
+           │            (conv): Conv2d(12, 80, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+           │            (bn): BatchNorm2d(80, eps...
+           └ BaseConv(
+               (conv): Conv2d(12, 80, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+               (bn): BatchNorm2d(80, eps...
+
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ <unprintable tuple object>
+           └ <bound method SiLU.forward of SiLU(inplace=True)>
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/activation.py", line 395, in forward
+    return F.silu(input, inplace=self.inplace)
+           │ │    │              │    └ True
+           │ │    │              └ SiLU(inplace=True)
+           │ │    └ <unprintable Tensor object>
+           │ └ <function silu at 0x7efdf295b820>
+           └ <module 'torch.nn.functional' from '/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/functional.py'>
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/functional.py", line 2058, in silu
+    return torch._C._nn.silu_(input)
+           │     │  │   │     └ <unprintable Tensor object>
+           │     │  │   └ <built-in function silu_>
+           │     │  └ <module 'torch._C._nn'>
+           │     └ <module 'torch._C' from '/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/_C.cpython-39-x86_64-linux-gnu....
+           └ <module 'torch' from '/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/__init__.py'>
+
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 2.06 GiB (GPU 0; 7.77 GiB total capacity; 6.11 GiB already allocated; 192.50 MiB free; 6.76 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+2025-06-25 17:01:03.239 | INFO     | yolox.core.trainer:before_train:126 - args: Namespace(experiment_name='yolox_x_mot17_half', name=None, dist_backend='nccl', dist_url=None, batch_size=16, devices=1, local_rank=0, exp_file='exps/example/mot/yolox_x_mot17_half.py', resume=False, ckpt='pretrained/bytetrack_x_mot17.pth.tar', start_epoch=None, num_machines=1, machine_rank=0, fp16=True, occupy=True, opts=[])
+2025-06-25 17:01:03.240 | INFO     | yolox.core.trainer:before_train:127 - exp value:
+╒══════════════════╤══════════════════════╕
+│ keys             │ values               │
+╞══════════════════╪══════════════════════╡
+│ seed             │ None                 │
+├──────────────────┼──────────────────────┤
+│ output_dir       │ './YOLOX_outputs'    │
+├──────────────────┼──────────────────────┤
+│ print_interval   │ 20                   │
+├──────────────────┼──────────────────────┤
+│ eval_interval    │ 5                    │
+├──────────────────┼──────────────────────┤
+│ num_classes      │ 1                    │
+├──────────────────┼──────────────────────┤
+│ depth            │ 1.33                 │
+├──────────────────┼──────────────────────┤
+│ width            │ 1.25                 │
+├──────────────────┼──────────────────────┤
+│ data_num_workers │ 4                    │
+├──────────────────┼──────────────────────┤
+│ input_size       │ (800, 1440)          │
+├──────────────────┼──────────────────────┤
+│ random_size      │ (18, 32)             │
+├──────────────────┼──────────────────────┤
+│ train_ann        │ 'train.json'         │
+├──────────────────┼──────────────────────┤
+│ val_ann          │ 'val_half.json'      │
+├──────────────────┼──────────────────────┤
+│ degrees          │ 10.0                 │
+├──────────────────┼──────────────────────┤
+│ translate        │ 0.1                  │
+├──────────────────┼──────────────────────┤
+│ scale            │ (0.1, 2)             │
+├──────────────────┼──────────────────────┤
+│ mscale           │ (0.8, 1.6)           │
+├──────────────────┼──────────────────────┤
+│ shear            │ 2.0                  │
+├──────────────────┼──────────────────────┤
+│ perspective      │ 0.0                  │
+├──────────────────┼──────────────────────┤
+│ enable_mixup     │ True                 │
+├──────────────────┼──────────────────────┤
+│ warmup_epochs    │ 1                    │
+├──────────────────┼──────────────────────┤
+│ max_epoch        │ 80                   │
+├──────────────────┼──────────────────────┤
+│ warmup_lr        │ 0                    │
+├──────────────────┼──────────────────────┤
+│ basic_lr_per_img │ 1.5625e-05           │
+├──────────────────┼──────────────────────┤
+│ scheduler        │ 'yoloxwarmcos'       │
+├──────────────────┼──────────────────────┤
+│ no_aug_epochs    │ 10                   │
+├──────────────────┼──────────────────────┤
+│ min_lr_ratio     │ 0.05                 │
+├──────────────────┼──────────────────────┤
+│ ema              │ True                 │
+├──────────────────┼──────────────────────┤
+│ weight_decay     │ 0.0005               │
+├──────────────────┼──────────────────────┤
+│ momentum         │ 0.9                  │
+├──────────────────┼──────────────────────┤
+│ exp_name         │ 'yolox_x_mot17_half' │
+├──────────────────┼──────────────────────┤
+│ test_size        │ (800, 1440)          │
+├──────────────────┼──────────────────────┤
+│ test_conf        │ 0.1                  │
+├──────────────────┼──────────────────────┤
+│ nmsthre          │ 0.7                  │
+╘══════════════════╧══════════════════════╛
+2025-06-25 17:01:03.630 | INFO     | yolox.core.trainer:before_train:132 - Model Summary: Params: 99.00M, Gflops: 793.21
+2025-06-25 17:01:04.088 | INFO     | yolox.core.trainer:resume_train:291 - loading checkpoint for fine tuning
+2025-06-25 17:01:04.370 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2025-06-25 17:01:04.610 | INFO     | yolox.data.datasets.mot:__init__:39 - Done (t=0.24s)
+2025-06-25 17:01:04.610 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2025-06-25 17:01:04.626 | INFO     | pycocotools.coco:__init__:88 - index created!
+2025-06-25 17:01:04.793 | INFO     | yolox.core.trainer:before_train:150 - init prefetcher, this might take one minute or less...
+2025-06-25 17:01:12.259 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2025-06-25 17:01:12.451 | INFO     | yolox.data.datasets.mot:__init__:39 - Done (t=0.19s)
+2025-06-25 17:01:12.451 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2025-06-25 17:01:12.462 | INFO     | pycocotools.coco:__init__:88 - index created!
+2025-06-25 17:01:12.513 | INFO     | yolox.core.trainer:before_train:178 - Training start...
+2025-06-25 17:01:12.513 | INFO     | yolox.core.trainer:before_epoch:189 - ---> start train epoch1
+2025-06-25 17:01:15.574 | INFO     | yolox.core.trainer:after_train:182 - Training of experiment is done and the best AP is 0.00
+2025-06-25 17:01:15.574 | ERROR    | yolox.core.launch:launch:90 - An error has been caught in function 'launch', process 'MainProcess' (18218), thread 'MainThread' (140293243019392):
+Traceback (most recent call last):
+
+  File "/home/stas/ID-REID/ByteTrack/tools/train.py", line 114, in <module>
+    launch(
+    └ <function launch at 0x7f97d46508b0>
+
+> File "/home/stas/ID-REID/ByteTrack/yolox/core/launch.py", line 90, in launch
+    main_func(*args)
+    │          └ (╒══════════════════╤════════════════════════════════════════════════════════════════════════════════════════════════════════...
+    └ <function main at 0x7f97c39d5820>
+
+  File "/home/stas/ID-REID/ByteTrack/tools/train.py", line 100, in main
+    trainer.train()
+    │       └ <function Trainer.train at 0x7f97c4d2fca0>
+    └ <yolox.core.trainer.Trainer object at 0x7f97c39ddcd0>
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/core/trainer.py", line 72, in train
+    self.train_in_epoch()
+    │    └ <function Trainer.train_in_epoch at 0x7f97c4d374c0>
+    └ <yolox.core.trainer.Trainer object at 0x7f97c39ddcd0>
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/core/trainer.py", line 81, in train_in_epoch
+    self.train_in_iter()
+    │    └ <function Trainer.train_in_iter at 0x7f97c3c5b4c0>
+    └ <yolox.core.trainer.Trainer object at 0x7f97c39ddcd0>
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/core/trainer.py", line 87, in train_in_iter
+    self.train_one_iter()
+    │    └ <function Trainer.train_one_iter at 0x7f97c3c5b550>
+    └ <yolox.core.trainer.Trainer object at 0x7f97c39ddcd0>
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/core/trainer.py", line 102, in train_one_iter
+    outputs = self.model(inps, targets)
+              │    │     │     └ tensor([[[   0.0000,  564.5000,  462.7500,  152.1250,  354.7500],
+              │    │     │                [   0.0000,  482.5000,  389.0000,   38.8750,   82....
+              │    │     └ <unprintable Tensor object>
+              │    └ YOLOX(
+              │        (backbone): YOLOPAFPN(
+              │          (backbone): CSPDarknet(
+              │            (stem): Focus(
+              │              (conv): BaseConv(
+              │                (conv): ...
+              └ <yolox.core.trainer.Trainer object at 0x7f97c39ddcd0>
+
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ <unprintable tuple object>
+           └ <bound method YOLOX.forward of YOLOX(
+               (backbone): YOLOPAFPN(
+                 (backbone): CSPDarknet(
+                   (stem): Focus(
+                     (conv...
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/models/yolox.py", line 30, in forward
+    fpn_outs = self.backbone(x)
+               │             └ <unprintable Tensor object>
+               └ YOLOX(
+                   (backbone): YOLOPAFPN(
+                     (backbone): CSPDarknet(
+                       (stem): Focus(
+                         (conv): BaseConv(
+                           (conv): ...
+
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ <unprintable tuple object>
+           └ <bound method YOLOPAFPN.forward of YOLOPAFPN(
+               (backbone): CSPDarknet(
+                 (stem): Focus(
+                   (conv): BaseConv(
+                     (c...
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/models/yolo_pafpn.py", line 93, in forward
+    out_features = self.backbone(input)
+                   │             └ <unprintable Tensor object>
+                   └ YOLOPAFPN(
+                       (backbone): CSPDarknet(
+                         (stem): Focus(
+                           (conv): BaseConv(
+                             (conv): Conv2d(12, 80, kernel_size=(3...
+
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ <unprintable tuple object>
+           └ <bound method CSPDarknet.forward of CSPDarknet(
+               (stem): Focus(
+                 (conv): BaseConv(
+                   (conv): Conv2d(12, 80, kernel_si...
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/models/darknet.py", line 171, in forward
+    x = self.dark2(x)
+        │          └ <unprintable Tensor object>
+        └ CSPDarknet(
+            (stem): Focus(
+              (conv): BaseConv(
+                (conv): Conv2d(12, 80, kernel_size=(3, 3), stride=(1, 1), padding=(1...
+
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ <unprintable tuple object>
+           └ <bound method Sequential.forward of Sequential(
+               (0): BaseConv(
+                 (conv): Conv2d(80, 160, kernel_size=(3, 3), stride=(2, 2...
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/container.py", line 204, in forward
+    input = module(input)
+            │      └ <unprintable Tensor object>
+            └ CSPLayer(
+                (conv1): BaseConv(
+                  (conv): Conv2d(160, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNorm...
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ <unprintable tuple object>
+           └ <bound method CSPLayer.forward of CSPLayer(
+               (conv1): BaseConv(
+                 (conv): Conv2d(160, 80, kernel_size=(1, 1), stride=(1, 1...
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/models/network_blocks.py", line 183, in forward
+    x_1 = self.m(x_1)
+          │      └ <unprintable Tensor object>
+          └ CSPLayer(
+              (conv1): BaseConv(
+                (conv): Conv2d(160, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                (bn): BatchNorm...
+
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ <unprintable tuple object>
+           └ <bound method Sequential.forward of Sequential(
+               (0): Bottleneck(
+                 (conv1): BaseConv(
+                   (conv): Conv2d(80, 80, kernel...
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/container.py", line 204, in forward
+    input = module(input)
+            │      └ <unprintable Tensor object>
+            └ Bottleneck(
+                (conv1): BaseConv(
+                  (conv): Conv2d(80, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+                  (bn): BatchNor...
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ <unprintable tuple object>
+           └ <bound method Bottleneck.forward of Bottleneck(
+               (conv1): BaseConv(
+                 (conv): Conv2d(80, 80, kernel_size=(1, 1), stride=(1...
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/models/network_blocks.py", line 98, in forward
+    y = self.conv2(self.conv1(x))
+        │          │          └ <unprintable Tensor object>
+        │          └ Bottleneck(
+        │              (conv1): BaseConv(
+        │                (conv): Conv2d(80, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+        │                (bn): BatchNor...
+        └ Bottleneck(
+            (conv1): BaseConv(
+              (conv): Conv2d(80, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+              (bn): BatchNor...
+
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ <unprintable tuple object>
+           └ <bound method BaseConv.forward of BaseConv(
+               (conv): Conv2d(80, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+               (bn): B...
+
+  File "/home/stas/ID-REID/ByteTrack/yolox/models/network_blocks.py", line 51, in forward
+    return self.act(self.bn(self.conv(x)))
+           │        │       │         └ <unprintable Tensor object>
+           │        │       └ BaseConv(
+           │        │           (conv): Conv2d(80, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │        │           (bn): BatchNorm2d(80, eps=0.001, momentum...
+           │        └ BaseConv(
+           │            (conv): Conv2d(80, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+           │            (bn): BatchNorm2d(80, eps=0.001, momentum...
+           └ BaseConv(
+               (conv): Conv2d(80, 80, kernel_size=(1, 1), stride=(1, 1), bias=False)
+               (bn): BatchNorm2d(80, eps=0.001, momentum...
+
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1194, in _call_impl
+    return forward_call(*input, **kwargs)
+           │             │        └ {}
+           │             └ <unprintable tuple object>
+           └ <bound method SiLU.forward of SiLU(inplace=True)>
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/modules/activation.py", line 395, in forward
+    return F.silu(input, inplace=self.inplace)
+           │ │    │              │    └ True
+           │ │    │              └ SiLU(inplace=True)
+           │ │    └ <unprintable Tensor object>
+           │ └ <function silu at 0x7f97d5c57820>
+           └ <module 'torch.nn.functional' from '/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/functional.py'>
+  File "/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/nn/functional.py", line 2058, in silu
+    return torch._C._nn.silu_(input)
+           │     │  │   │     └ <unprintable Tensor object>
+           │     │  │   └ <built-in function silu_>
+           │     │  └ <module 'torch._C._nn'>
+           │     └ <module 'torch._C' from '/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/_C.cpython-39-x86_64-linux-gnu....
+           └ <module 'torch' from '/home/stas/ID-REID/ByteTrack/.venv/lib/python3.9/site-packages/torch/__init__.py'>
+
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 176.00 MiB (GPU 0; 7.77 GiB total capacity; 6.66 GiB already allocated; 38.31 MiB free; 6.92 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+2025-06-25 17:02:04.877 | INFO     | yolox.core.trainer:before_train:126 - args: Namespace(experiment_name='yolox_x_mot17_half', name=None, dist_backend='nccl', dist_url=None, batch_size=1, devices=1, local_rank=0, exp_file='exps/example/mot/yolox_x_mot17_half.py', resume=False, ckpt='pretrained/bytetrack_x_mot17.pth.tar', start_epoch=None, num_machines=1, machine_rank=0, fp16=True, occupy=True, opts=[])
+2025-06-25 17:02:04.878 | INFO     | yolox.core.trainer:before_train:127 - exp value:
+╒══════════════════╤══════════════════════╕
+│ keys             │ values               │
+╞══════════════════╪══════════════════════╡
+│ seed             │ None                 │
+├──────────────────┼──────────────────────┤
+│ output_dir       │ './YOLOX_outputs'    │
+├──────────────────┼──────────────────────┤
+│ print_interval   │ 20                   │
+├──────────────────┼──────────────────────┤
+│ eval_interval    │ 5                    │
+├──────────────────┼──────────────────────┤
+│ num_classes      │ 1                    │
+├──────────────────┼──────────────────────┤
+│ depth            │ 1.33                 │
+├──────────────────┼──────────────────────┤
+│ width            │ 1.25                 │
+├──────────────────┼──────────────────────┤
+│ data_num_workers │ 4                    │
+├──────────────────┼──────────────────────┤
+│ input_size       │ (800, 1440)          │
+├──────────────────┼──────────────────────┤
+│ random_size      │ (18, 32)             │
+├──────────────────┼──────────────────────┤
+│ train_ann        │ 'train.json'         │
+├──────────────────┼──────────────────────┤
+│ val_ann          │ 'val_half.json'      │
+├──────────────────┼──────────────────────┤
+│ degrees          │ 10.0                 │
+├──────────────────┼──────────────────────┤
+│ translate        │ 0.1                  │
+├──────────────────┼──────────────────────┤
+│ scale            │ (0.1, 2)             │
+├──────────────────┼──────────────────────┤
+│ mscale           │ (0.8, 1.6)           │
+├──────────────────┼──────────────────────┤
+│ shear            │ 2.0                  │
+├──────────────────┼──────────────────────┤
+│ perspective      │ 0.0                  │
+├──────────────────┼──────────────────────┤
+│ enable_mixup     │ True                 │
+├──────────────────┼──────────────────────┤
+│ warmup_epochs    │ 1                    │
+├──────────────────┼──────────────────────┤
+│ max_epoch        │ 80                   │
+├──────────────────┼──────────────────────┤
+│ warmup_lr        │ 0                    │
+├──────────────────┼──────────────────────┤
+│ basic_lr_per_img │ 1.5625e-05           │
+├──────────────────┼──────────────────────┤
+│ scheduler        │ 'yoloxwarmcos'       │
+├──────────────────┼──────────────────────┤
+│ no_aug_epochs    │ 10                   │
+├──────────────────┼──────────────────────┤
+│ min_lr_ratio     │ 0.05                 │
+├──────────────────┼──────────────────────┤
+│ ema              │ True                 │
+├──────────────────┼──────────────────────┤
+│ weight_decay     │ 0.0005               │
+├──────────────────┼──────────────────────┤
+│ momentum         │ 0.9                  │
+├──────────────────┼──────────────────────┤
+│ exp_name         │ 'yolox_x_mot17_half' │
+├──────────────────┼──────────────────────┤
+│ test_size        │ (800, 1440)          │
+├──────────────────┼──────────────────────┤
+│ test_conf        │ 0.1                  │
+├──────────────────┼──────────────────────┤
+│ nmsthre          │ 0.7                  │
+╘══════════════════╧══════════════════════╛
+2025-06-25 17:02:05.270 | INFO     | yolox.core.trainer:before_train:132 - Model Summary: Params: 99.00M, Gflops: 793.21
+2025-06-25 17:02:05.733 | INFO     | yolox.core.trainer:resume_train:291 - loading checkpoint for fine tuning
+2025-06-25 17:02:06.013 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2025-06-25 17:02:06.253 | INFO     | yolox.data.datasets.mot:__init__:39 - Done (t=0.24s)
+2025-06-25 17:02:06.253 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2025-06-25 17:02:06.270 | INFO     | pycocotools.coco:__init__:88 - index created!
+2025-06-25 17:02:06.440 | INFO     | yolox.core.trainer:before_train:150 - init prefetcher, this might take one minute or less...
+2025-06-25 17:02:12.028 | INFO     | yolox.data.datasets.mot:__init__:39 - loading annotations into memory...
+2025-06-25 17:02:12.189 | INFO     | yolox.data.datasets.mot:__init__:39 - Done (t=0.16s)
+2025-06-25 17:02:12.189 | INFO     | pycocotools.coco:__init__:88 - creating index...
+2025-06-25 17:02:12.200 | INFO     | pycocotools.coco:__init__:88 - index created!
+2025-06-25 17:02:12.252 | INFO     | yolox.core.trainer:before_train:178 - Training start...
+2025-06-25 17:02:12.252 | INFO     | yolox.core.trainer:before_epoch:189 - ---> start train epoch1
+2025-06-25 17:02:12.515 | INFO     | yolox.core.trainer:after_train:182 - Training of experiment is done and the best AP is 0.00
